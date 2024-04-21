@@ -11,12 +11,19 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setup()
+    }
+
+    private fun setup() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setUpTabBar()
+
+        setupTabBar()
     }
-    private fun setUpTabBar() {
-        val tabAdapter = TabPageAdapter(this, binding.tabBar.tabCount )
+
+    private fun setupTabBar() {
+        val tabAdapter = TabPageAdapter(this, binding.tabBar.tabCount)
         binding.viewPager.adapter = tabAdapter
 
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){

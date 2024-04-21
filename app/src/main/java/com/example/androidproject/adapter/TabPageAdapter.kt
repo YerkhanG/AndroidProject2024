@@ -8,18 +8,14 @@ import com.example.androidproject.views.SearchFragment
 import com.example.androidproject.views.WeatherFragment
 
 class TabPageAdapter(activity : FragmentActivity,private val tabCount : Int) : FragmentStateAdapter(activity) {
-    override fun getItemCount(): Int {
-        return tabCount
-    }
+    override fun getItemCount() = tabCount
 
     override fun createFragment(position: Int): Fragment {
-        return when(position){
-            0-> MainFragment()
-            1-> SearchFragment()
-            2-> WeatherFragment()
+        return when(position) {
+            0 -> MainFragment()
+            1 -> SearchFragment()
+            2 -> WeatherFragment()
             else -> MainFragment()
-
         }
-
     }
 }
