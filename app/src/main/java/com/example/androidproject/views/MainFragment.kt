@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.androidproject.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayout
 
-class MainFragment : Fragment(){
+class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -24,7 +24,4 @@ class MainFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
-
-
-
 }
