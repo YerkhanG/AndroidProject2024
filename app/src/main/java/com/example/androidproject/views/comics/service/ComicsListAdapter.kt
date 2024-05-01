@@ -1,4 +1,4 @@
-package com.example.androidproject.adapter
+package com.example.androidproject.views.comics.service
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,18 +14,33 @@ class ComicsListAdapter: ListAdapter<Comics, ComicsListAdapter.ViewHolder>(Comic
         private val binding: ItemComicsBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(comics: Comics) {
-
+            val imageURL = comics.thumbnail.path + "." + comics.thumbnail.extension
             with(binding) {
                 Glide
                     .with(root.context)
-                    .load(comics.images[0])
+                    .load(imageURL)
+                    .dontAnimate()
                     .placeholder(R.drawable.ic_launcher_foreground)
                     .into(comicsImage)
                 comicsTitle.text = comics.title
                 comicsDesc.text = comics.description
+                characters.text = getCharacterNames(comics)
             }
 
         }
+    }
+    private fun getCharacterNames(comics: Comics): String {
+        val characters = comics.characters.items
+        val comicsText = StringBuilder()
+
+        for (i in characters.indices) {
+            comicsText.append(characters[i].name)
+            if (i < characters.size - 1) {
+                comicsText.append(", ")
+            }
+        }
+
+        return comicsText.toString()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(

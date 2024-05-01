@@ -1,4 +1,4 @@
-package com.example.androidproject.adapter
+package com.example.androidproject.views.comics.service
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.androidproject.model.Comics
