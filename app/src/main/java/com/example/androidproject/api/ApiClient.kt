@@ -4,11 +4,13 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+const val BASE_URL = "https://gateway.marvel.com/v1/public/"
+
 object ApiClient {
     private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("https://tengrinews.kz/api2/")
+        .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val instance = retrofit.create(NewsService::class.java)
+    val instance: MarvelService = retrofit.create(MarvelService::class.java)
 }
