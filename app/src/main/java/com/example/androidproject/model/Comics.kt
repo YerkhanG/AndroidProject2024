@@ -85,11 +85,6 @@ data class Events(
     val items: List<Any>,
     val returned: Int
 )
-data class ComicsResponse(
-    val code: Int,
-    val status: String,
-    val data: ComicsData
-)
 
 data class ComicsData(
     val offset: Int,
