@@ -1,6 +1,7 @@
 package com.example.androidproject.api
 
 import com.example.androidproject.model.CharacterResponse
+import com.example.androidproject.model.ComicsData
 import com.example.androidproject.model.ComicsResponse
 import retrofit2.Call
 import retrofit2.http.GET

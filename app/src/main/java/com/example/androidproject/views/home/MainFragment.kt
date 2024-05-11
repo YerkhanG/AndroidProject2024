@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainBinding.inflate(inflater,container,false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -48,7 +48,7 @@ class MainFragment : Fragment() {
     }
 
     private fun setupAdapter() {
-        with (binding) {
+        with(binding) {
             title.text = "Characters"
             characterList.adapter = adapter
         }
@@ -58,7 +58,7 @@ class MainFragment : Fragment() {
         binding.loadingProgressBar.visibility = View.VISIBLE
 
         val response = client.getCharacters()
-        response.enqueue(object: Callback<CharacterResponse> {
+        response.enqueue(object : Callback<CharacterResponse> {
             override fun onResponse(
                 call: Call<CharacterResponse>,
                 response: Response<CharacterResponse>

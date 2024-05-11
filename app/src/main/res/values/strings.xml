@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidProject</string>
+    <string name="error_title">Произошла ошибка</string>
+    <string name="error_message">Извините, произошла техническая ошибка, попробуйте позже...</string>
 </resources>
