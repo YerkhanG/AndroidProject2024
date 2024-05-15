@@ -1,25 +1,40 @@
 package com.example.androidproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.androidproject.databinding.ActivityMainBinding
 import com.example.androidproject.adapter.TabPageAdapter
+import com.example.androidproject.util.UserData
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setup()
+        when{
+            UserData(this).isAuthorized() -> {
+                setupTabBar()
+            }
+            !UserData(this).isAuthorized() -> {
+                navigateToLogin()
+            }
+        }
+    }
+
+    private fun navigateToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun setup() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setupTabBar()
     }
 
     private fun setupTabBar() {
