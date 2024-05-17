@@ -3,6 +3,7 @@ package com.example.androidproject.api
 import com.example.androidproject.model.CharacterResponse
 import com.example.androidproject.model.ComicsData
 import com.example.androidproject.model.ComicsResponse
+import com.example.androidproject.model.CreatorsResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -27,4 +28,11 @@ interface MarvelService {
         @Query("hash") hash: String = HASH,
         @Query("limit") limit: Int = 50,
     ): Call<ComicsResponse>
+  @GET("creators")
+  fun getCreators(
+    @Query("ts") ts: String = TIMESTAMP,
+    @Query("apikey") apiKey: String = API_KEY,
+    @Query("hash") hash: String = HASH,
+    @Query("limit") limit: Int = 50,
+  ): Call<CreatorsResponse>
 }
